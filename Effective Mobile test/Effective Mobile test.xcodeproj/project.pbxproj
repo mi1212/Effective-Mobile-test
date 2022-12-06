@@ -13,6 +13,22 @@
 		FDC494CD293F0896009ECAB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDC494CC293F0896009ECAB4 /* Assets.xcassets */; };
 		FDC494D0293F0896009ECAB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC494CE293F0896009ECAB4 /* LaunchScreen.storyboard */; };
 		FDC494D9293F0900009ECAB4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FDC494D8293F0900009ECAB4 /* SDWebImage */; };
+		FDD8241F293FABAC00DBF4CB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8241E293FABAC00DBF4CB /* TabBarController.swift */; };
+		FDD82422293FABE800DBF4CB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD82421293FABE800DBF4CB /* TabBar.swift */; };
+		FDD82425293FAC5C00DBF4CB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = FDD82424293FAC5C00DBF4CB /* RxCocoa */; };
+		FDD82427293FAC5C00DBF4CB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = FDD82426293FAC5C00DBF4CB /* RxRelay */; };
+		FDD82429293FAC5C00DBF4CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FDD82428293FAC5C00DBF4CB /* RxSwift */; };
+		FDD8242C293FAC7A00DBF4CB /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = FDD8242B293FAC7A00DBF4CB /* RxGesture */; };
+		FDD8242E293FACC100DBF4CB /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8242D293FACC100DBF4CB /* TabItemView.swift */; };
+		FDD82430293FAD0E00DBF4CB /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8242F293FAD0E00DBF4CB /* TabItem.swift */; };
+		FDD82432293FAE0600DBF4CB /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD82431293FAE0600DBF4CB /* Extentions.swift */; };
+		FDD82439293FBF2E00DBF4CB /* ExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD82438293FBF2E00DBF4CB /* ExplorerViewController.swift */; };
+		FDD8243C293FBF8600DBF4CB /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8243B293FBF8600DBF4CB /* CategoryCollectionView.swift */; };
+		FDD8243F293FCB2400DBF4CB /* UIFont+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8243E293FCB2400DBF4CB /* UIFont+Extention.swift */; };
+		FDD82441293FCB8800DBF4CB /* Mark-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDD8243D293FCAE200DBF4CB /* Mark-Pro.ttf */; };
+		FDD82444293FD53100DBF4CB /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD82443293FD53100DBF4CB /* AppTextField.swift */; };
+		FDD82446293FD72000DBF4CB /* UIColor+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD82445293FD72000DBF4CB /* UIColor+Extention.swift */; };
+		FDD82448293FDAA400DBF4CB /* HotSalesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD82447293FDAA400DBF4CB /* HotSalesCollectionView.swift */; };
 		FDED9E31293F0A48004DD07B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDED9E30293F0A48004DD07B /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +40,18 @@
 		FDC494CC293F0896009ECAB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDC494CF293F0896009ECAB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDC494D1293F0896009ECAB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDD8241E293FABAC00DBF4CB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FDD82421293FABE800DBF4CB /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		FDD8242D293FACC100DBF4CB /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		FDD8242F293FAD0E00DBF4CB /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		FDD82431293FAE0600DBF4CB /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		FDD82438293FBF2E00DBF4CB /* ExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewController.swift; sourceTree = "<group>"; };
+		FDD8243B293FBF8600DBF4CB /* CategoryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
+		FDD8243D293FCAE200DBF4CB /* Mark-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark-Pro.ttf"; sourceTree = "<group>"; };
+		FDD8243E293FCB2400DBF4CB /* UIFont+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extention.swift"; sourceTree = "<group>"; };
+		FDD82443293FD53100DBF4CB /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		FDD82445293FD72000DBF4CB /* UIColor+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extention.swift"; sourceTree = "<group>"; };
+		FDD82447293FDAA400DBF4CB /* HotSalesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSalesCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +59,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD82425293FAC5C00DBF4CB /* RxCocoa in Frameworks */,
 				FDC494D9293F0900009ECAB4 /* SDWebImage in Frameworks */,
+				FDD82429293FAC5C00DBF4CB /* RxSwift in Frameworks */,
+				FDD82427293FAC5C00DBF4CB /* RxRelay in Frameworks */,
+				FDD8242C293FAC7A00DBF4CB /* RxGesture in Frameworks */,
 				FDED9E31293F0A48004DD07B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,14 +90,50 @@
 		FDC494C2293F0895009ECAB4 /* Effective Mobile test */ = {
 			isa = PBXGroup;
 			children = (
+				FDD82442293FD50900DBF4CB /* CommonUI */,
+				FDD8243A293FBF7100DBF4CB /* Views */,
+				FDD8241D293FAB3900DBF4CB /* TabBarController */,
 				FDC494C3293F0895009ECAB4 /* AppDelegate.swift */,
+				FDD8243E293FCB2400DBF4CB /* UIFont+Extention.swift */,
+				FDD82445293FD72000DBF4CB /* UIColor+Extention.swift */,
 				FDC494C5293F0895009ECAB4 /* SceneDelegate.swift */,
 				FDC494C7293F0895009ECAB4 /* ViewController.swift */,
 				FDC494CC293F0896009ECAB4 /* Assets.xcassets */,
 				FDC494CE293F0896009ECAB4 /* LaunchScreen.storyboard */,
 				FDC494D1293F0896009ECAB4 /* Info.plist */,
+				FDD8243D293FCAE200DBF4CB /* Mark-Pro.ttf */,
 			);
 			path = "Effective Mobile test";
+			sourceTree = "<group>";
+		};
+		FDD8241D293FAB3900DBF4CB /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				FDD8241E293FABAC00DBF4CB /* TabBarController.swift */,
+				FDD82438293FBF2E00DBF4CB /* ExplorerViewController.swift */,
+				FDD82421293FABE800DBF4CB /* TabBar.swift */,
+				FDD8242D293FACC100DBF4CB /* TabItemView.swift */,
+				FDD8242F293FAD0E00DBF4CB /* TabItem.swift */,
+				FDD82431293FAE0600DBF4CB /* Extentions.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		FDD8243A293FBF7100DBF4CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDD8243B293FBF8600DBF4CB /* CategoryCollectionView.swift */,
+				FDD82447293FDAA400DBF4CB /* HotSalesCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FDD82442293FD50900DBF4CB /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				FDD82443293FD53100DBF4CB /* AppTextField.swift */,
+			);
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +155,10 @@
 			packageProductDependencies = (
 				FDC494D8293F0900009ECAB4 /* SDWebImage */,
 				FDED9E30293F0A48004DD07B /* SnapKit */,
+				FDD82424293FAC5C00DBF4CB /* RxCocoa */,
+				FDD82426293FAC5C00DBF4CB /* RxRelay */,
+				FDD82428293FAC5C00DBF4CB /* RxSwift */,
+				FDD8242B293FAC7A00DBF4CB /* RxGesture */,
 			);
 			productName = "Effective Mobile test";
 			productReference = FDC494C0293F0895009ECAB4 /* Effective Mobile test.app */;
@@ -119,6 +191,8 @@
 			packageReferences = (
 				FDC494D7293F0900009ECAB4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				FDED9E2F293F0A48004DD07B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FDD82423293FAC5C00DBF4CB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				FDD8242A293FAC7A00DBF4CB /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = FDC494C1293F0895009ECAB4 /* Products */;
 			projectDirPath = "";
@@ -134,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD82441293FCB8800DBF4CB /* Mark-Pro.ttf in Resources */,
 				FDC494D0293F0896009ECAB4 /* LaunchScreen.storyboard in Resources */,
 				FDC494CD293F0896009ECAB4 /* Assets.xcassets in Resources */,
 			);
@@ -146,9 +221,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD8243C293FBF8600DBF4CB /* CategoryCollectionView.swift in Sources */,
+				FDD82448293FDAA400DBF4CB /* HotSalesCollectionView.swift in Sources */,
+				FDD82432293FAE0600DBF4CB /* Extentions.swift in Sources */,
 				FDC494C8293F0895009ECAB4 /* ViewController.swift in Sources */,
+				FDD8241F293FABAC00DBF4CB /* TabBarController.swift in Sources */,
 				FDC494C4293F0895009ECAB4 /* AppDelegate.swift in Sources */,
+				FDD82430293FAD0E00DBF4CB /* TabItem.swift in Sources */,
+				FDD8242E293FACC100DBF4CB /* TabItemView.swift in Sources */,
 				FDC494C6293F0895009ECAB4 /* SceneDelegate.swift in Sources */,
+				FDD82439293FBF2E00DBF4CB /* ExplorerViewController.swift in Sources */,
+				FDD82446293FD72000DBF4CB /* UIColor+Extention.swift in Sources */,
+				FDD82422293FABE800DBF4CB /* TabBar.swift in Sources */,
+				FDD8243F293FCB2400DBF4CB /* UIFont+Extention.swift in Sources */,
+				FDD82444293FD53100DBF4CB /* AppTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +452,22 @@
 				kind = branch;
 			};
 		};
+		FDD82423293FAC5C00DBF4CB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		FDD8242A293FAC7A00DBF4CB /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		FDED9E2F293F0A48004DD07B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -381,6 +483,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FDC494D7293F0900009ECAB4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		FDD82424293FAC5C00DBF4CB /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDD82423293FAC5C00DBF4CB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		FDD82426293FAC5C00DBF4CB /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDD82423293FAC5C00DBF4CB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		FDD82428293FAC5C00DBF4CB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDD82423293FAC5C00DBF4CB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		FDD8242B293FAC7A00DBF4CB /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDD8242A293FAC7A00DBF4CB /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 		FDED9E30293F0A48004DD07B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
