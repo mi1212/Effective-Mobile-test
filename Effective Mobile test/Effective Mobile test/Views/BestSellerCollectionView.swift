@@ -1,21 +1,20 @@
 //
-//  CategoryCollectionView.swift
-//  customTabBar
+//  BestSellerCollectionView.swift
+//  Effective Mobile test
 //
-//  Created by Mikhail Chuparnov on 06.12.2022.
+//  Created by Mikhail Chuparnov on 07.12.2022.
 //
 
 import UIKit
 import SnapKit
 
-class CategoryCollectionView: UIView {
+class BestSellerCollectionView: UIView {
     
     private let labelView = UILabel()
-    private let viewAllButton = UIButton()
-
-    let font = UIFont()
     
-    lazy var categoryCollectionView: UICollectionView = {
+    private let viewAllButton = UIButton()
+    
+    lazy var bestSellerCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero , collectionViewLayout: layout)
@@ -38,7 +37,7 @@ class CategoryCollectionView: UIView {
     }
     
     private func setupViews() {
-        self.addSubview(categoryCollectionView)
+        self.addSubview(bestSellerCollectionView)
         self.addSubview(labelView)
         self.addSubview(viewAllButton)
         let inset = 16
@@ -53,42 +52,42 @@ class CategoryCollectionView: UIView {
             make.centerY.equalTo(labelView)
         }
         
-        categoryCollectionView.snp.makeConstraints { make in
+        bestSellerCollectionView.snp.makeConstraints { make in
             make.top.equalTo(labelView.snp.bottom)
-            make.leading.trailing.equalToSuperview().inset(inset)
-            make.bottom.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview().inset(inset)
         }
     }
     private func setupProperts() {
-        labelView.text = "Select Category"
+        labelView.text = "Best Seller"
         labelView.font = .labelFont
-        viewAllButton.setTitle("view all", for: .normal)
+        viewAllButton.setTitle("see more", for: .normal)
         viewAllButton.setTitleColor(.appTestColor, for: .normal)
     }
     
 }
 
-extension CategoryCollectionView: UICollectionViewDataSource {
+extension BestSellerCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.identifire, for: indexPath) as! UICollectionViewCell
         cell.backgroundColor = .white
-        cell.layer.cornerRadius = cell.bounds.width/2
+        cell.layer.cornerRadius = 12
         return cell
     }
  
 }
 
-extension CategoryCollectionView: UICollectionViewDelegateFlowLayout {
+extension BestSellerCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let inset = 16
         let labelInset = labelView.frame.height
-        let width = (Int(self.bounds.width) - inset*5)/4
-        return CGSize(width: width, height: width)
+        let width = (Int(self.bounds.width) - inset*3)/2
+        let height = (Int(self.bounds.height) - inset*3 - Int(labelInset))/2
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

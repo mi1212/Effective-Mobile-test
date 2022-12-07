@@ -29,7 +29,7 @@ class AppTextField: UITextField {
         self.tintColor = .black
         self.textColor = .black
         self.adjustsFontForContentSizeCategory = true
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 15
         self.clearButtonMode = .whileEditing
         translatesAutoresizingMaskIntoConstraints = false
     }

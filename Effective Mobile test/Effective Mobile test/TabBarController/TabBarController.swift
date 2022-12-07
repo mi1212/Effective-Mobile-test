@@ -44,6 +44,7 @@ class TabBarController: UITabBarController {
     }
     
     private func setupHierarchy() {
+        navigationController?.tabBarController?.tabBar.isHidden = true
         view.addSubview(customTabBar)
     }
     

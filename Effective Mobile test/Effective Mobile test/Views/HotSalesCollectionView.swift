@@ -11,9 +11,8 @@ import SnapKit
 class HotSalesCollextionView: UIView {
     
     private let labelView = UILabel()
+    
     private let viewAllButton = UIButton()
-
-    let font = UIFont()
     
     lazy var hotSalesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -55,7 +54,7 @@ class HotSalesCollextionView: UIView {
         
         hotSalesCollectionView.snp.makeConstraints { make in
             make.top.equalTo(labelView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview().inset(inset)
         }
     }
     private func setupProperts() {
@@ -74,7 +73,7 @@ extension HotSalesCollextionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.identifire, for: indexPath) as! UICollectionViewCell
-        cell.backgroundColor = .blue
+        cell.backgroundColor = .white
         cell.layer.cornerRadius = 12
         return cell
     }
@@ -85,13 +84,14 @@ extension HotSalesCollextionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let inset = 16
+        let labelInset = labelView.frame.height
         let width = (Int(self.bounds.width) - inset*2)
-        let height = (Int(self.bounds.height) - inset*2)
+        let height = (Int(self.bounds.height) - inset - Int(labelInset))
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        8
+        16
     }
 
 }
