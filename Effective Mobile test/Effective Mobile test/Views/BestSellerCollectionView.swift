@@ -10,6 +10,12 @@ import SnapKit
 
 class BestSellerCollectionView: UIView {
     
+    var bestSeller : [BestSeller]? {
+        didSet {
+            bestSellerCollectionView.reloadData()
+        }
+    }
+    
     private let labelView = UILabel()
     
     private let viewAllButton = UIButton()
@@ -21,7 +27,7 @@ class BestSellerCollectionView: UIView {
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.dataSource = self
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifire)
+        collection.register(BestSellerCollectionViewCell.self, forCellWithReuseIdentifier: BestSellerCollectionViewCell.identifire)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
@@ -68,11 +74,16 @@ class BestSellerCollectionView: UIView {
 
 extension BestSellerCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        bestSeller?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.identifire, for: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BestSellerCollectionViewCell.identifire, for: indexPath) as! BestSellerCollectionViewCell
+        
+        if let bestSeller = bestSeller?[indexPath.row] {
+            cell.bestSeller = bestSeller
+        }
+        
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 12
         return cell

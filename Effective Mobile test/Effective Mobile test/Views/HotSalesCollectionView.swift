@@ -12,6 +12,12 @@ class HotSalesCollextionView: UIView {
     
     private let labelView = UILabel()
     
+    var hotSales : [HomeStore]? {
+        didSet {
+            hotSalesCollectionView.reloadData()
+        }
+    }
+    
     private let viewAllButton = UIButton()
     
     lazy var hotSalesCollectionView: UICollectionView = {
@@ -21,7 +27,7 @@ class HotSalesCollextionView: UIView {
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.dataSource = self
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifire)
+        collection.register(HotSalesCollectionViewCell.self, forCellWithReuseIdentifier: HotSalesCollectionViewCell.identifire)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
@@ -64,15 +70,22 @@ class HotSalesCollextionView: UIView {
         viewAllButton.setTitleColor(.appTestColor, for: .normal)
     }
     
+    private func setupCell() {
+        
+    }
+    
 }
 
 extension HotSalesCollextionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        hotSales?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.identifire, for: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotSalesCollectionViewCell.identifire, for: indexPath) as! HotSalesCollectionViewCell
+        if let hotSales = hotSales?[indexPath.row] {
+            cell.hotSales = hotSales
+        }
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 12
         return cell

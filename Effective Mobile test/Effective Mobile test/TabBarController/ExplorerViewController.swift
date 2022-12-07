@@ -12,6 +12,13 @@ class ExplorerViewController: UIViewController {
     
     var networkDataFetcher = NetworkDataFetcher()
     
+    var resultData: ResultData? {
+        didSet {
+            hotSalesCollectionView.hotSales = self.resultData?.homeStore
+            bestSellerCollectionView.bestSeller = self.resultData?.bestSeller
+        }
+    }
+    
     let scrollView = UIScrollView()
     
     let contentView = UIView()
@@ -31,6 +38,7 @@ class ExplorerViewController: UIViewController {
         self.view.backgroundColor = .backgroundColor
         setup()
         setupProperties()
+        requestData()
     }
     
     private func setup() {
@@ -87,19 +95,16 @@ class ExplorerViewController: UIViewController {
     
     private func setupProperties() {
         searchTextField.addShadow(radius: 20, opacity: 0.05)
-
+        
         qrButton.backgroundColor = .appTestColor
         qrButton.image = UIImage(named: "qr")
     }
     
     private func requestData() {
-        self.networkDataFetcher.fetchData(completion: { [weak self] (searchResults) in
-                guard let fetchPhotos = searchResults else { return }
-                PhotosCollectionViewController.photos = fetchPhotos.results
-                self?.collectionView.reloadData()
-                self?.total = fetchPhotos.total
-                searchBar.placeholder = "found "+String(fetchPhotos.total)+" photo(s)"
-                self?.navigationItem.searchController?.isActive = false // выключение isActive searchControll, чтобы не приходилось дополнительно после нажатия "Найти", тапать в экран
+        self.networkDataFetcher.fetchData(completion: { [weak self] result in
+            if let data = result {
+                self?.resultData = data
+            }
         })
 
     }

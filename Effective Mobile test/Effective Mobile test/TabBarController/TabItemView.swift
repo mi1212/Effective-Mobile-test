@@ -30,12 +30,6 @@ final class TabItemView: UIView {
         super.init(frame: .zero)
         self.labelView.text = label
         self.labelView.textColor = .white
-
-//        self.labelView.textAlignment = .justified
-//        self.labelView.sizeToFit()
-//        self.labelView.backgroundColor = .green
-//        backgroundColor = .systemBlue
-        
         setupLayout()
     }
     

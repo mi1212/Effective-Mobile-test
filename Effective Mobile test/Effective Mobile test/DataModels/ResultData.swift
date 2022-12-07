@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ResultData: Codable {
+struct ResultData: Decodable {
     let homeStore: [HomeStore]
     let bestSeller: [BestSeller]
 

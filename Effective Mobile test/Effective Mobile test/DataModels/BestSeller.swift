@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BestSeller: Codable {
+struct BestSeller: Decodable {
     let id: Int
     let isFavorites: Bool
     let title: String
