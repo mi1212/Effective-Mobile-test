@@ -39,6 +39,7 @@ class ExplorerViewController: UIViewController {
         setup()
         setupProperties()
         requestData()
+        setupNavigationBar()
     }
     
     private func setup() {
@@ -108,5 +109,22 @@ class ExplorerViewController: UIViewController {
         })
 
     }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .appTestDarckColor
+        
+        let filter = UIImage(named: "filter")
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: filter,
+            style: .plain,
+            target: self,
+            action: #selector(presentFilterViewController)
+        )
+    }
 
+    @objc func presentFilterViewController() {
+        let vc = FilterViewController()
+        navigationController?.present(vc, animated: true)
+    }
 }

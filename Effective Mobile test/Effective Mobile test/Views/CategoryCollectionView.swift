@@ -13,7 +13,7 @@ class CategoryCollectionView: UIView {
     private let labelView = UILabel()
     private let viewAllButton = UIButton()
     
-    let categoryes = CategoryItem.allCases.map { $0.picture }
+    var categories = [Category]()
 
     let font = UIFont()
     
@@ -33,7 +33,7 @@ class CategoryCollectionView: UIView {
         super.init(frame: frame)
         setupProperts()
         setupViews()
-        print("categoryes - \(categoryes)")
+        setupCategories()
     }
     
     required init?(coder: NSCoder) {
@@ -69,35 +69,55 @@ class CategoryCollectionView: UIView {
         viewAllButton.setTitleColor(.appTestColor, for: .normal)
     }
     
+    private func setupCategories() {
+        let categoriesArray = CategoryItem.allCases
+        
+        for i in 0...categoriesArray.count - 1 {
+            let category = Category(title: categoriesArray[i].rawValue, pic: categoriesArray[i].picture!, isChoused: false)
+            categories.append(category)
+        }
+    }
+    
 }
 
 extension CategoryCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categoryes.count
+        categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifire, for: indexPath) as! CategoryCollectionViewCell
-        cell.backgroundColor = .white
-        cell.picture.tintColor = .appTestColor
-        cell.picture.image = categoryes[indexPath.row]
+        
+        if categories[indexPath.row].isChoused {
+            cell.backgroundColor = .appTestColor
+            cell.picture.tintColor = .white
+        } else {
+            cell.backgroundColor = .white
+            cell.picture.tintColor = .systemGray
+        }
+        
+        cell.picture.image = categories[indexPath.row].pic
         cell.layer.cornerRadius = cell.bounds.width/2
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell
-//        collectionView.reloadData()
         
-//        UIView.animate(withDuration: 1, delay: 0) {
-//            cell?.transform = (cell?.transform.scaledBy(x: 0.4, y: 0.4))!
-//            UIView.animate(withDuration: 1, delay: 0) {
-//                cell?.backgroundColor = .appTestColor
-//                cell?.picture.tintColor = .gray
-//                cell?.transform = (cell?.transform.scaledBy(x: 1/0.4, y: 1/0.4))!
-//            }
-//        }
-        
+        UIView.animate(withDuration: 0.05, delay: 0, options: .autoreverse) {
+            cell?.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        } completion: { [self] _ in
+            cell?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            if categories[indexPath.row].isChoused {
+                categories[indexPath.row].isChoused.toggle()
+            } else {
+                for index in categories.indices {
+                    categories[index].isChoused = false
+                }
+                categories[indexPath.row].isChoused.toggle()
+                collectionView.reloadData()
+            }
+        }
     }
  
 }
