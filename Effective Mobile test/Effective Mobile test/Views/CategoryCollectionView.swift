@@ -12,6 +12,8 @@ class CategoryCollectionView: UIView {
     
     private let labelView = UILabel()
     private let viewAllButton = UIButton()
+    
+    let categoryes = CategoryItem.allCases.map { $0.picture }
 
     let font = UIFont()
     
@@ -22,7 +24,7 @@ class CategoryCollectionView: UIView {
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.dataSource = self
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifire)
+        collection.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifire)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
@@ -31,6 +33,7 @@ class CategoryCollectionView: UIView {
         super.init(frame: frame)
         setupProperts()
         setupViews()
+        print("categoryes - \(categoryes)")
     }
     
     required init?(coder: NSCoder) {
@@ -70,14 +73,31 @@ class CategoryCollectionView: UIView {
 
 extension CategoryCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        categoryes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.identifire, for: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifire, for: indexPath) as! CategoryCollectionViewCell
         cell.backgroundColor = .white
+        cell.picture.tintColor = .appTestColor
+        cell.picture.image = categoryes[indexPath.row]
         cell.layer.cornerRadius = cell.bounds.width/2
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell
+//        collectionView.reloadData()
+        
+//        UIView.animate(withDuration: 1, delay: 0) {
+//            cell?.transform = (cell?.transform.scaledBy(x: 0.4, y: 0.4))!
+//            UIView.animate(withDuration: 1, delay: 0) {
+//                cell?.backgroundColor = .appTestColor
+//                cell?.picture.tintColor = .gray
+//                cell?.transform = (cell?.transform.scaledBy(x: 1/0.4, y: 1/0.4))!
+//            }
+//        }
+        
     }
  
 }
