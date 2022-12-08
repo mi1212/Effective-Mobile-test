@@ -84,9 +84,9 @@ extension HotSalesCollextionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotSalesCollectionViewCell.identifire, for: indexPath) as! HotSalesCollectionViewCell
         if let hotSales = hotSales?[indexPath.row] {
-            cell.hotSales = hotSales
+            cell.setupData(hotSales: hotSales)
         }
-        cell.backgroundColor = .white
+        
         cell.layer.cornerRadius = 12
         return cell
     }

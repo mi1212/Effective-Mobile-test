@@ -81,7 +81,8 @@ extension BestSellerCollectionView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BestSellerCollectionViewCell.identifire, for: indexPath) as! BestSellerCollectionViewCell
         
         if let bestSeller = bestSeller?[indexPath.row] {
-            cell.bestSeller = bestSeller
+            cell.setupData(bestSeller: bestSeller)
+            cell.likeButton.addShadow(radius: 100, opacity: 1)
         }
         
         cell.backgroundColor = .white

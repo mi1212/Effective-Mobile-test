@@ -24,7 +24,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
  
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.layer.cornerRadius = 24
         contentView.clipsToBounds = true
         setupCell()
     }

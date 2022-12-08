@@ -27,7 +27,15 @@ class ExplorerViewController: UIViewController {
     
     let searchTextField = AppTextField()
     
-    let qrButton = UIImageView()
+    let qrButton: UIView = {
+        let view = UIView()
+        view.backgroundColor = .appTestColor
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 16.5
+        return view
+    }()
+    
+    let qrImage = UIImageView()
     
     let hotSalesCollectionView = HotSalesCollextionView()
     
@@ -37,6 +45,7 @@ class ExplorerViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundColor
         setup()
+        setupqrButton()
         setupProperties()
         requestData()
         setupNavigationBar()
@@ -48,7 +57,6 @@ class ExplorerViewController: UIViewController {
         
         contentView.addSubview(categoryCollectionView)
         contentView.addSubview(searchTextField)
-        contentView.addSubview(qrButton)
         contentView.addSubview(hotSalesCollectionView)
         contentView.addSubview(bestSellerCollectionView)
 
@@ -66,16 +74,10 @@ class ExplorerViewController: UIViewController {
             make.height.equalTo(self.view).multipliedBy(0.15)
         }
         
-        qrButton.snp.makeConstraints { make in
-            make.top.equalTo(categoryCollectionView.snp.bottom).inset(-32)
-            make.trailing.equalTo(contentView).inset(32)
-            make.height.width.equalTo(34)
-        }
-        
         searchTextField.snp.makeConstraints { make in
             make.top.equalTo(categoryCollectionView.snp.bottom).inset(-32)
             make.leading.equalTo(contentView).inset(37)
-            make.trailing.equalTo(qrButton.snp.leading).inset(-11)
+//
             make.height.equalTo(34)
         }
 
@@ -89,16 +91,34 @@ class ExplorerViewController: UIViewController {
             make.top.equalTo(hotSalesCollectionView.snp.bottom).inset(-21)
             make.leading.trailing.bottom.equalToSuperview()
             make.bottom.equalTo(contentView).inset(70)
-            make.height.equalTo(self.view).multipliedBy(0.6)
+            make.height.equalTo(self.view).multipliedBy(0.7)
         }
         
+    }
+    
+    private func setupqrButton() {
+        contentView.addSubview(qrButton)
+        qrButton.addSubview(qrImage)
+
+        qrButton.snp.makeConstraints { make in
+            make.top.equalTo(categoryCollectionView.snp.bottom).inset(-32)
+            make.trailing.equalTo(contentView).inset(32)
+            make.leading.equalTo(searchTextField.snp.trailing).inset(-11)
+            make.height.width.equalTo(34)
+        }
+        
+        qrImage.snp.makeConstraints { make in
+            make.center.equalTo(qrButton)
+            make.height.width.equalTo(qrButton).multipliedBy(0.4)
+        }
+
     }
     
     private func setupProperties() {
         searchTextField.addShadow(radius: 20, opacity: 0.05)
         
         qrButton.backgroundColor = .appTestColor
-        qrButton.image = UIImage(named: "qr")
+        qrImage.image = UIImage(named: "qr")
     }
     
     private func requestData() {

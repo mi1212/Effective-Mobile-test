@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Mark-Pro.ttf</string>
+		<string>SFProDisplay.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
