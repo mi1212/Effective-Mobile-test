@@ -44,6 +44,7 @@ class ExplorerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundColor
+        navigationController?.tabBarController?.tabBar.isHidden = true
         setup()
         setupqrButton()
         setupProperties()
@@ -122,7 +123,7 @@ class ExplorerViewController: UIViewController {
     }
     
     private func requestData() {
-        self.networkDataFetcher.fetchData(completion: { [weak self] result in
+        self.networkDataFetcher.fetchDataWelcome(completion: { [weak self] result in
             if let data = result {
                 self?.resultData = data
             }

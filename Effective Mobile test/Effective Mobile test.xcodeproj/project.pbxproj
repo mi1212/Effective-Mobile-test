@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD0036942943438800798AB3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0036932943438800798AB3 /* Card.swift */; };
+		FD003696294343F400798AB3 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD003695294343F400798AB3 /* CardViewController.swift */; };
+		FD003698294344CA00798AB3 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD003697294344CA00798AB3 /* CardCollectionView.swift */; };
 		FD225FBA2941AEAC000A227A /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD225FB92941AEAC000A227A /* CategoryCollectionViewCell.swift */; };
 		FD225FBC2941F2ED000A227A /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD225FBB2941F2ED000A227A /* CategoryItem.swift */; };
 		FD6E3A9F29424F1F00D39DCC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6E3A9E29424F1F00D39DCC /* Category.swift */; };
@@ -46,6 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD0036932943438800798AB3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		FD003695294343F400798AB3 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		FD003697294344CA00798AB3 /* CardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
 		FD225FB92941AEAC000A227A /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FD225FBB2941F2ED000A227A /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		FD6E3A9E29424F1F00D39DCC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 				FDBF6ED42940D2FE00001A3A /* ResultData.swift */,
 				FDBF6ED62940D31500001A3A /* BestSeller.swift */,
 				FDBF6ED82940D33600001A3A /* HomeStore.swift */,
+				FD0036932943438800798AB3 /* Card.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -182,6 +189,7 @@
 			children = (
 				FDD8241E293FABAC00DBF4CB /* TabBarController.swift */,
 				FDD82438293FBF2E00DBF4CB /* ExplorerViewController.swift */,
+				FD003695294343F400798AB3 /* CardViewController.swift */,
 				FD6E3AA029425C9500D39DCC /* FilterViewController.swift */,
 				FDD82421293FABE800DBF4CB /* TabBar.swift */,
 				FDD8242D293FACC100DBF4CB /* TabItemView.swift */,
@@ -196,6 +204,7 @@
 				FDD8243B293FBF8600DBF4CB /* CategoryCollectionView.swift */,
 				FDD82447293FDAA400DBF4CB /* HotSalesCollectionView.swift */,
 				FDBF6ECB29405B1D00001A3A /* BestSellerCollectionView.swift */,
+				FD003697294344CA00798AB3 /* CardCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,11 +310,14 @@
 				FDD8241F293FABAC00DBF4CB /* TabBarController.swift in Sources */,
 				FDBF6ECC29405B1D00001A3A /* BestSellerCollectionView.swift in Sources */,
 				FDBF6ED72940D31500001A3A /* BestSeller.swift in Sources */,
+				FD003696294343F400798AB3 /* CardViewController.swift in Sources */,
 				FDC494C4293F0895009ECAB4 /* AppDelegate.swift in Sources */,
 				FDBF6ED52940D2FE00001A3A /* ResultData.swift in Sources */,
+				FD0036942943438800798AB3 /* Card.swift in Sources */,
 				FD225FBC2941F2ED000A227A /* CategoryItem.swift in Sources */,
 				FDD82430293FAD0E00DBF4CB /* TabItem.swift in Sources */,
 				FDD8242E293FACC100DBF4CB /* TabItemView.swift in Sources */,
+				FD003698294344CA00798AB3 /* CardCollectionView.swift in Sources */,
 				FDBF6ED22940D25900001A3A /* NetworkDataFetcher.swift in Sources */,
 				FD847A3A2940FBD100CAD4B7 /* BestSellerCollectionViewCell.swift in Sources */,
 				FDC494C6293F0895009ECAB4 /* SceneDelegate.swift in Sources */,

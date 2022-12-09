@@ -13,14 +13,27 @@ class NetworkDataFetcher {
     
     // запрос поиска
     
-    func fetchData(completion: @escaping (ResultData?) -> ()) {
-        networkService.request() { (data, error) in
+    func fetchDataWelcome(completion: @escaping (ResultData?) -> ()) {
+        networkService.requestWelcome() { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription )")
                 completion(nil)
             }
             if let resultData = data {
                 let decode = self.decodeJSON(type: ResultData.self, from: resultData)
+                completion(decode)
+            }
+        }
+    }
+    
+    func fetchDataCard(completion: @escaping (Card?) -> ()) {
+        networkService.requestCard() { (data, error) in
+            if let error = error {
+                print("Error received requesting data: \(error.localizedDescription )")
+                completion(nil)
+            }
+            if let resultData = data {
+                let decode = self.decodeJSON(type: Card.self, from: resultData)
                 completion(decode)
             }
         }
