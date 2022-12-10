@@ -39,6 +39,19 @@ class NetworkDataFetcher {
         }
     }
     
+    func fetchDataProductDetails(completion: @escaping (ProductDetails?) -> ()) {
+        networkService.requestProductDeatails() { (data, error) in
+            if let error = error {
+                print("Error received requesting data: \(error.localizedDescription )")
+                completion(nil)
+            }
+            if let resultData = data {
+                let decode = self.decodeJSON(type: ProductDetails.self, from: resultData)
+                completion(decode)
+            }
+        }
+    }
+    
     // парсинг
     
     func decodeJSON<T: Decodable> (type: T.Type, from: Data?) -> T? {

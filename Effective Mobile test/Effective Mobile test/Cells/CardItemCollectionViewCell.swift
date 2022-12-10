@@ -12,7 +12,6 @@ class CardItemCollectionViewCell: UICollectionViewCell {
     
     let picture: UIImageView = {
         let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.setupCornerRadius(10)
         image.contentMode = .scaleAspectFit

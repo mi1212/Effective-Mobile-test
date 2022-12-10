@@ -116,6 +116,8 @@ class ExplorerViewController: UIViewController {
     }
     
     private func setupProperties() {
+        bestSellerCollectionView.delegate = self
+        
         searchTextField.addShadow(radius: 20, opacity: 0.05)
         
         qrButton.backgroundColor = .appTestColor
@@ -148,4 +150,13 @@ class ExplorerViewController: UIViewController {
         let vc = FilterViewController()
         navigationController?.present(vc, animated: true)
     }
+}
+
+extension ExplorerViewController: BestSellerCollectionViewDelegate {
+    func tapCell() {
+        let vc = ProductDetailsViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }

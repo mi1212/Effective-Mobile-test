@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 
+protocol BestSellerCollectionViewDelegate: AnyObject {
+    func tapCell()
+}
+
 class BestSellerCollectionView: UIView {
+     
+    weak var delegate: BestSellerCollectionViewDelegate?
     
     var bestSeller : [BestSeller]? {
         didSet {
@@ -104,6 +110,10 @@ extension BestSellerCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tapCell()
     }
 
 }

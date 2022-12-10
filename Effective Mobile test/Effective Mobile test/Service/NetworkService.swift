@@ -26,6 +26,14 @@ class NetworkService {
         let task = createDataTask(from: request, completion: completion)
         task.resume()
     }
+    
+    func requestProductDeatails(completion: @escaping (Data?, Error?) -> Void) {
+        let url = self.urlRequestProductDetails()
+        var request = URLRequest(url: url)
+        request.httpMethod = "get"
+        let task = createDataTask(from: request, completion: completion)
+        task.resume()
+    }
 
     // параметры адреса
     
@@ -45,7 +53,13 @@ class NetworkService {
         return components.url!
     }
     
-
+    private func urlRequestProductDetails() -> URL {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "run.mocky.io"
+        components.path = "/v3/6c14c560-15c6-4248-b9d2-b4508df7d4f5"
+        return components.url!
+    }
     
     private func createDataTask(from request: URLRequest, completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
         return URLSession.shared.dataTask(with: request) { data, response, error in
