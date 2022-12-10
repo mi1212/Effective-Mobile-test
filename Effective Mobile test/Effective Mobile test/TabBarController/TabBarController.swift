@@ -12,14 +12,10 @@ import RxCocoa
 class TabBarController: UITabBarController {
     
     private let customTabBar = TabBar()
-
-    let userDefaults = UserDefaults.standard
+    
+    var networkDataFetcher = NetworkDataFetcher()
     
     private let disposeBag = DisposeBag()
-    
-    init(uid: String) {
-        super.init(nibName: nil, bundle: nil)
-    }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -34,6 +30,7 @@ class TabBarController: UITabBarController {
         setupHierarchy()
         setupLayout()
         setupProperties()
+        requestData()
         bind()
         view.layoutIfNeeded()
     }
@@ -68,13 +65,23 @@ class TabBarController: UITabBarController {
         self.selectedIndex = index
     }
     
-    //MARK: - Bindings
-    
     private func bind() {
         customTabBar.itemTapped
             .bind { [weak self] in self?.selectTabWith(index: $0)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func requestData() {
+        self.networkDataFetcher.fetchDataCard(completion: { [weak self] result in
+            if let data = result {
+                let badgeValue = data.basket.count
+                
+                self?.customTabBar.checkoutItem.setupBadge()
+//                self?.customTabBar.checkoutItem.badgeView.text = "\(badgeValue)"
+            }
+        })
+
     }
 
 }

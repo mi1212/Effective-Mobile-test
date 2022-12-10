@@ -19,10 +19,10 @@ final class TabBar: UIView {
     
     private lazy var customItemViews: [TabItemView] = [explorerItem, checkoutItem, favoritesItem, profileItem]
     
-    private let explorerItem = TabItemView(with: .explorer, index: 0, label: "Explorer")
-    private let checkoutItem = TabItemView(with: .checkout, index: 1, label: "")
-    private let favoritesItem = TabItemView(with: .favorites, index: 2, label: "")
-    private let profileItem = TabItemView(with: .profile, index: 3, label: "")
+    private let explorerItem = TabItemView(with: .explorer, index: 0, label: "Explorer", badge: "")
+    let checkoutItem = TabItemView(with: .checkout, index: 1, label: "", badge: "")
+    private let favoritesItem = TabItemView(with: .favorites, index: 2, label: "", badge: "")
+    private let profileItem = TabItemView(with: .profile, index: 3, label: "", badge: "")
   
     private let itemTappedSubject = PublishSubject<Int>()
     

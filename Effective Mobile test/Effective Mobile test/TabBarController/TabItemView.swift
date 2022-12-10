@@ -12,7 +12,7 @@ final class TabItemView: UIView {
     private let contentView = UIView()
     private let iconImageView = UIImageView()
     private let labelView = UILabel()
-    
+    var badgeView = UILabel()
     let index: Int
     
     var isSelected = false {
@@ -23,16 +23,15 @@ final class TabItemView: UIView {
     
     private let item: TabItem
     
-    init(with item: TabItem, index: Int, label: String) {
+    init(with item: TabItem, index: Int, label: String, badge: String) {
         
         self.item = item
         self.index = index
         super.init(frame: .zero)
         self.labelView.text = label
-        self.labelView.textColor = .white
-        self.labelView.adjustsFontSizeToFitWidth = true
-        self.labelView.minimumScaleFactor = 0.5
+        self.badgeView.text = badge
         setupLayout()
+        setupProperts()
     }
     
     required init?(coder: NSCoder) {
@@ -43,6 +42,7 @@ final class TabItemView: UIView {
         addSubview(contentView)
         contentView.addSubview(iconImageView)
         contentView.addSubview(labelView)
+        contentView.addSubview(badgeView)
         iconImageView.image = isSelected ? item.selectedIcon : item.icon
 
         contentView.snp.makeConstraints { make in
@@ -50,8 +50,7 @@ final class TabItemView: UIView {
         }
         
         iconImageView.snp.makeConstraints { make in
-            make.width.equalTo(20)
-            make.height.equalTo(20)
+            make.width.height.equalTo(30)
             make.centerX.equalToSuperview()
             make.bottom.top.equalTo(contentView)
         }
@@ -63,6 +62,35 @@ final class TabItemView: UIView {
                 make.trailing.equalTo(contentView)
             }
         }
+        
+//        if badgeView.text != "" {
+//
+//        }
+        
+    }
+    
+    func setupBadge() {
+        contentView.addSubview(badgeView)
+        
+        badgeView.snp.makeConstraints { make in
+            make.trailing.bottom.equalTo(iconImageView).inset(2)
+            make.width.height.equalTo(16)
+        }
+    }
+    
+    private func setupProperts() {
+        
+        badgeView.backgroundColor = .appTestColor
+        badgeView.setupCornerRadius(8)
+        badgeView.sizeToFit()
+        badgeView.clipsToBounds = true
+//        badgeView.textAlignment = .center
+//        badgeView.textColor = .white
+//        badgeView.font = UIFont(name: "MarkPro", size: 12)
+        
+        self.labelView.textColor = .white
+        self.labelView.adjustsFontSizeToFitWidth = true
+        self.labelView.minimumScaleFactor = 0.5
     }
     
     private func animateItems() {
