@@ -109,7 +109,6 @@ class HotSalesCollectionViewCell: UICollectionViewCell {
     }
     
     func setupNewLabel() {
-        print("isNew - \(isNew)")
         if let bool = isNew {
             if bool {
                 contentView.addSubview(newView)

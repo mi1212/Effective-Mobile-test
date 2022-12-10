@@ -30,6 +30,8 @@ final class TabItemView: UIView {
         super.init(frame: .zero)
         self.labelView.text = label
         self.labelView.textColor = .white
+        self.labelView.adjustsFontSizeToFitWidth = true
+        self.labelView.minimumScaleFactor = 0.5
         setupLayout()
     }
     
@@ -44,15 +46,14 @@ final class TabItemView: UIView {
         iconImageView.image = isSelected ? item.selectedIcon : item.icon
 
         contentView.snp.makeConstraints { make in
-            
             make.edges.equalToSuperview()
-//            make.centerX.equalToSuperview()
         }
         
         iconImageView.snp.makeConstraints { make in
             make.width.equalTo(20)
             make.height.equalTo(20)
-            make.bottom.top.leading.equalTo(contentView)
+            make.centerX.equalToSuperview()
+            make.bottom.top.equalTo(contentView)
         }
         
         if labelView.text != "" {

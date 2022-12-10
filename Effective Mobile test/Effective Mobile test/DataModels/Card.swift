@@ -7,18 +7,17 @@
 
 import Foundation
 
+// MARK: - Welcome
 struct Card: Codable {
-    let cpu, camera: String
-    let capacity, color: [String]
-    let id: String
-    let images: [String]
-    let isFavorites: Bool
-    let price: Int
-    let rating: Double
-    let sd, ssd, title: String
+    let basket: [BasketItem]
+    let delivery, id: String
+    let total: Int
+}
 
-    enum CodingKeys: String, CodingKey {
-        case cpu = "CPU"
-        case camera, capacity, color, id, images, isFavorites, price, rating, sd, ssd, title
-    }
+// MARK: - Basket
+struct BasketItem: Codable {
+    let id: Int
+    let images: String
+    let price: Int
+    let title: String
 }
