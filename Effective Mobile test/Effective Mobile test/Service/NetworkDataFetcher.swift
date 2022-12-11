@@ -26,14 +26,14 @@ class NetworkDataFetcher {
         }
     }
     
-    func fetchDataCard(completion: @escaping (Card?) -> ()) {
+    func fetchDataCard(completion: @escaping (Cart?) -> ()) {
         networkService.requestCard() { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription )")
                 completion(nil)
             }
             if let resultData = data {
-                let decode = self.decodeJSON(type: Card.self, from: resultData)
+                let decode = self.decodeJSON(type: Cart.self, from: resultData)
                 completion(decode)
             }
         }

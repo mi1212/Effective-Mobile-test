@@ -1,5 +1,5 @@
 //
-//  CardViewController.swift
+//  CartViewController.swift
 //  Effective Mobile test
 //
 //  Created by Mikhail Chuparnov on 09.12.2022.
@@ -8,19 +8,19 @@
 import UIKit
 import SnapKit
 
-class CardViewController: UIViewController {
+class CartViewController: UIViewController {
 
     var networkDataFetcher = NetworkDataFetcher()
     
-    var card: Card? {
+    var cart: Cart? {
         didSet {
-            cardCollectionView.card = self.card
+            cardCollectionView.cart = self.cart
         }
     }
 
     private let labelView = UILabel()
         
-    let cardCollectionView = CardCollectionView()
+    let cardCollectionView = CartCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,20 +46,17 @@ class CardViewController: UIViewController {
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(labelView.snp.bottom).inset(-49)
         }
-
     }
     
     private func setupProperts() {
-        labelView.text = "My Card"
+        labelView.text = "My Cart"
         labelView.font = .labelFont
-//        viewAllButton.setTitle("see more", for: .normal)
-//        viewAllButton.setTitleColor(.appTestColor, for: .normal)
     }
 
     private func requestData() {
         self.networkDataFetcher.fetchDataCard(completion: { [weak self] result in
             if let data = result {
-                self?.card = data
+                self?.cart = data
             }
         })
 

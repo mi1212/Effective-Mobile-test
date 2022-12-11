@@ -23,7 +23,7 @@ extension TabItem {
             let nc = UINavigationController(rootViewController: ExplorerViewController())
             return nc
         case .checkout:
-            let nc = UINavigationController(rootViewController: CardViewController())
+            let nc = UINavigationController(rootViewController: CartViewController())
             return nc
         case .favorites:
             let nc = UINavigationController(rootViewController: ViewController())

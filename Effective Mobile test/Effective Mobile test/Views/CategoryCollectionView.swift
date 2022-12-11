@@ -104,10 +104,11 @@ extension CategoryCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell
         
-        UIView.animate(withDuration: 0.05, delay: 0, options: .autoreverse) {
-            cell?.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        UIView.animate(withDuration: 0.1, delay: 0, options: .autoreverse) {
+            cell?.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         } completion: { [self] _ in
             cell?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            
             if categories[indexPath.row].isChoused {
                 categories[indexPath.row].isChoused.toggle()
             } else {
@@ -115,8 +116,9 @@ extension CategoryCollectionView: UICollectionViewDataSource {
                     categories[index].isChoused = false
                 }
                 categories[indexPath.row].isChoused.toggle()
-                collectionView.reloadData()
+                
             }
+            collectionView.reloadData()
         }
     }
  

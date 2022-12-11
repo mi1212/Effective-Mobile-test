@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct Card: Codable {
+struct Cart: Codable {
     let basket: [BasketItem]
     let delivery, id: String
     let total: Int

@@ -16,6 +16,9 @@ class ProductDetailsViewController: UIViewController {
         didSet {
             
             setupData()
+            if let details = productDetails {
+                detailsView.configuretionDetailStack(details: details)
+            }
         }
     }
     
@@ -37,7 +40,7 @@ class ProductDetailsViewController: UIViewController {
         
         picturesCollectionView.snp.makeConstraints { make in
             make.leading.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            make.height.equalTo(picturesCollectionView.snp.width).multipliedBy(0.8)
+            make.height.equalTo(picturesCollectionView.snp.width).multipliedBy(0.6)
         }
         
         detailsView.snp.makeConstraints { make in

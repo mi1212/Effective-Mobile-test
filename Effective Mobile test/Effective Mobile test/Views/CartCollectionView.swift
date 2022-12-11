@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class CardCollectionView: UIView {
+class CartCollectionView: UIView {
     
-    var card : Card? {
+    var cart : Cart? {
         didSet {
             setupData()
             cardCollectionView.reloadData()
@@ -146,6 +146,7 @@ class CardCollectionView: UIView {
         
         checkoutButton.setTitle("Checkout", for: .normal)
         checkoutButton.backgroundColor = .appTestColor
+        checkoutButton.titleLabel?.font = UIFont(name: "MarkPro", size: 20)
         checkoutButton.setupCornerRadius(10)
         
         
@@ -153,23 +154,23 @@ class CardCollectionView: UIView {
     }
     
     private func setupData() {
-        if let card = self.card {
-            self.priceLabel.text = "$\(card.total)"
-            self.deliveryPriceLabel.text = "\(card.delivery)"
+        if let cart = self.cart {
+            self.priceLabel.text = "$\(cart.total)"
+            self.deliveryPriceLabel.text = "\(cart.delivery)"
         }
     }
 
     
 }
 
-extension CardCollectionView: UICollectionViewDataSource {
+extension CartCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        card?.basket.count ?? 0
+        cart?.basket.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardItemCollectionViewCell.identifire, for: indexPath) as! CardItemCollectionViewCell
-        if let basket = card?.basket {
+        if let basket = cart?.basket {
             
             cell.setupData(basket: basket[indexPath.row])
             
@@ -180,7 +181,7 @@ extension CardCollectionView: UICollectionViewDataSource {
  
 }
 
-extension CardCollectionView: UICollectionViewDelegateFlowLayout {
+extension CartCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
