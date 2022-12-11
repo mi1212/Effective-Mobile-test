@@ -14,6 +14,11 @@ extension UIFont {
         return font!
     }
     
+    static var labelFontSmall: UIFont {
+        let font = UIFont(name: "MarkPro", size: 18)
+        return font!
+    }
+    
     static var proDisplayFont: UIFont {
         guard let font = UIFont(name: "SFProDisplay-Regular", size: 32) else {return UIFont.systemFont(ofSize: 32)}
         return font

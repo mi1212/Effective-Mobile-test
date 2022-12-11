@@ -55,8 +55,11 @@ class HotSalesCollectionViewCell: UICollectionViewCell {
     let newLabel: UILabel = {
         let label = UILabel()
         label.text = "New"
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.numberOfLines = 1
         label.textAlignment = .center
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 13)
         label.textColor = .white
         return label
     }()
@@ -117,8 +120,7 @@ class HotSalesCollectionViewCell: UICollectionViewCell {
                 newView.snp.makeConstraints { make in
                     make.top.equalToSuperview().inset(23)
                     make.leading.equalToSuperview().inset(32)
-                    make.height.equalToSuperview().multipliedBy(0.15)
-                    make.width.equalTo(newView.snp.height)
+                    make.height.width.equalTo(30)
                 }
                 
                 newLabel.snp.makeConstraints { make in
@@ -126,6 +128,8 @@ class HotSalesCollectionViewCell: UICollectionViewCell {
                 }                
             }
         }
+        
+        newView.setupCornerRadius(15)
     }
     
     private func requetsPicture(pictureUrl: String) {

@@ -24,7 +24,7 @@ class CartCollectionView: UIView {
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.dataSource = self
-        collection.register(CardItemCollectionViewCell.self, forCellWithReuseIdentifier: CardItemCollectionViewCell.identifire)
+        collection.register(CartItemCollectionViewCell.self, forCellWithReuseIdentifier: CartItemCollectionViewCell.identifire)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
@@ -148,9 +148,6 @@ class CartCollectionView: UIView {
         checkoutButton.backgroundColor = .appTestColor
         checkoutButton.titleLabel?.font = UIFont(name: "MarkPro", size: 20)
         checkoutButton.setupCornerRadius(10)
-        
-        
-
     }
     
     private func setupData() {
@@ -159,8 +156,6 @@ class CartCollectionView: UIView {
             self.deliveryPriceLabel.text = "\(cart.delivery)"
         }
     }
-
-    
 }
 
 extension CartCollectionView: UICollectionViewDataSource {
@@ -169,7 +164,8 @@ extension CartCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardItemCollectionViewCell.identifire, for: indexPath) as! CardItemCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CartItemCollectionViewCell.identifire, for: indexPath) as! CartItemCollectionViewCell
+        cell.index = indexPath.row
         if let basket = cart?.basket {
             
             cell.setupData(basket: basket[indexPath.row])

@@ -14,13 +14,13 @@ class CartViewController: UIViewController {
     
     var cart: Cart? {
         didSet {
-            cardCollectionView.cart = self.cart
+            cartCollectionView.cart = self.cart
         }
     }
 
     private let labelView = UILabel()
         
-    let cardCollectionView = CartCollectionView()
+    let cartCollectionView = CartCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +32,15 @@ class CartViewController: UIViewController {
     private func setupViews() {
         
         self.view.addSubview(labelView)
-        self.view.addSubview(cardCollectionView)
+        self.view.addSubview(cartCollectionView)
 
-        let inset = 16
-        
         labelView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).inset(50)
             make.leading.equalToSuperview().inset(42)
             make.height.equalTo(30)
         }
         
-        cardCollectionView.snp.makeConstraints { make in
+        cartCollectionView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(labelView.snp.bottom).inset(-49)
         }

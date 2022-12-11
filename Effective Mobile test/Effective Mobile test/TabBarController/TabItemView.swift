@@ -69,13 +69,14 @@ final class TabItemView: UIView {
         
     }
     
-    func setupBadge() {
+    func setupBadge(qtyOfItemsinCart: Int) {
         contentView.addSubview(badgeView)
         
         badgeView.snp.makeConstraints { make in
             make.trailing.bottom.equalTo(iconImageView).inset(2)
             make.width.height.equalTo(16)
         }
+        badgeView.text = "\(qtyOfItemsinCart)"
     }
     
     private func setupProperts() {
@@ -84,9 +85,9 @@ final class TabItemView: UIView {
         badgeView.setupCornerRadius(8)
         badgeView.sizeToFit()
         badgeView.clipsToBounds = true
-//        badgeView.textAlignment = .center
-//        badgeView.textColor = .white
-//        badgeView.font = UIFont(name: "MarkPro", size: 12)
+        badgeView.textAlignment = .center
+        badgeView.textColor = .white
+        badgeView.font = UIFont(name: "MarkPro", size: 12)
         
         self.labelView.textColor = .white
         self.labelView.adjustsFontSizeToFitWidth = true

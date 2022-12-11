@@ -1,5 +1,5 @@
 //
-//  Card.swift
+//  Cart.swift
 //  Effective Mobile test
 //
 //  Created by Mikhail Chuparnov on 09.12.2022.

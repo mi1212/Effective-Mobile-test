@@ -76,9 +76,7 @@ class TabBarController: UITabBarController {
         self.networkDataFetcher.fetchDataCard(completion: { [weak self] result in
             if let data = result {
                 let badgeValue = data.basket.count
-                
-                self?.customTabBar.checkoutItem.setupBadge()
-//                self?.customTabBar.checkoutItem.badgeView.text = "\(badgeValue)"
+                self?.customTabBar.checkoutItem.setupBadge(qtyOfItemsinCart: badgeValue)
             }
         })
 

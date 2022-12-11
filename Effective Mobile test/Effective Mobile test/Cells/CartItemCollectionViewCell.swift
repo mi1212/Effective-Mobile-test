@@ -7,8 +7,10 @@
 
 import UIKit
 import SnapKit
-
-class CardItemCollectionViewCell: UICollectionViewCell {
+ 
+class CartItemCollectionViewCell: UICollectionViewCell {
+    
+    var index: Int?
     
     let picture: UIImageView = {
         let image = UIImageView()
@@ -83,6 +85,7 @@ class CardItemCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupCell()
         setupProperties()
+        addRecognizerToPlusAndMinus()
     }
 
     required init?(coder: NSCoder) {
@@ -147,4 +150,23 @@ class CardItemCollectionViewCell: UICollectionViewCell {
         
         requetsPicture(pictureUrl: basket.images)
     }
+    
+    private func addRecognizerToPlusAndMinus() {
+        let tapPlus = UITapGestureRecognizer(target: self, action: #selector(handlePlusTap(_sender:)))
+        plusButton.isUserInteractionEnabled = true
+        plusButton.addGestureRecognizer(tapPlus)
+        
+        let tapMinus = UITapGestureRecognizer(target: self, action: #selector(handleMinusTap(_sender:)))
+        minusButton.isUserInteractionEnabled = true
+        minusButton.addGestureRecognizer(tapMinus)
+    }
+    
+    @objc func handlePlusTap(_sender: UITapGestureRecognizer) {
+        print("tapPlus")
+        }
+    
+    @objc func handleMinusTap(_sender: UITapGestureRecognizer) {
+        print("tapMinus")
+        }
+    
 }

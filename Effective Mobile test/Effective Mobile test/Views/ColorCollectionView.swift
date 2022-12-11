@@ -11,7 +11,6 @@ class ColorCollectionView: UICollectionView{
 
     var colors: [String]? {
         didSet {
-            print(self.colors)
             self.reloadData()
         }
     }

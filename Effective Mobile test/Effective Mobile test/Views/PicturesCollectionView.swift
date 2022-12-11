@@ -76,7 +76,6 @@ extension PicturesCollectionView: UICollectionViewDataSource {
         let imageView = UIImageView()
         
         if let pictureUrl = productDetails?.images[indexPath.row] {
-            print(pictureUrl)
             requetsPicture(imageView: imageView, pictureUrl: pictureUrl)
             
             cell.contentView.addSubviews(imageView)
