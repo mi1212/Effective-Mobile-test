@@ -27,6 +27,8 @@ class ExplorerViewController: UIViewController {
     
     let searchTextField = AppTextField()
     
+    let navigationBarView = NavigationBarView("Minsk, Belorussia")
+    
     let qrButton: UIView = {
         let view = UIView()
         view.backgroundColor = .appTestColor
@@ -144,12 +146,27 @@ class ExplorerViewController: UIViewController {
             target: self,
             action: #selector(presentFilterViewController)
         )
+        
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.addSubview(navigationBarView)
+            
+            navigationBarView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+                make.width.equalToSuperview().multipliedBy(0.5)
+                make.height.equalToSuperview()
+            }
+            
+        }
+        
+        
     }
 
     @objc func presentFilterViewController() {
         let vc = FilterViewController()
         navigationController?.present(vc, animated: true)
     }
+    
+    
 }
 
 extension ExplorerViewController: BestSellerCollectionViewDelegate {
