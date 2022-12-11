@@ -54,6 +54,16 @@ class ExplorerViewController: UIViewController {
         setupNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupViewToNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationBarView.removeFromSuperview()
+    }
+    
     private func setup() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -146,7 +156,9 @@ class ExplorerViewController: UIViewController {
             target: self,
             action: #selector(presentFilterViewController)
         )
-        
+    }
+    
+    private func setupViewToNavigationBar() {
         if let navBar = self.navigationController?.navigationBar {
             navBar.addSubview(navigationBarView)
             
@@ -155,18 +167,14 @@ class ExplorerViewController: UIViewController {
                 make.width.equalToSuperview().multipliedBy(0.5)
                 make.height.equalToSuperview()
             }
-            
         }
-        
-        
     }
 
     @objc func presentFilterViewController() {
         let vc = FilterViewController()
         navigationController?.present(vc, animated: true)
     }
-    
-    
+ 
 }
 
 extension ExplorerViewController: BestSellerCollectionViewDelegate {

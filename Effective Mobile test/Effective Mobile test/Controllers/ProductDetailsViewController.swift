@@ -32,6 +32,7 @@ class ProductDetailsViewController: UIViewController {
         requestData()
         setupViews()
         setupProperties()
+        setupNavigationBar()
     }
     
     private func setupViews() {
@@ -62,6 +63,25 @@ class ProductDetailsViewController: UIViewController {
     private func setupData() {
         picturesCollectionView.productDetails = self.productDetails
         detailsView.title.text = productDetails?.title
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .appTestDarckColor
+        
+        let filter = UIImage(named: "cart")
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: filter,
+            style: .plain,
+            target: self,
+            action: #selector(presentCartViewController)
+        )
+    }
+    
+    @objc func presentCartViewController() {
+//        let vc = CartViewController()
+//        navigationController?.pushViewController(vc, animated: true)
+        print("зачем кнопка здесь если она есть в табБаре??")
     }
 
 }

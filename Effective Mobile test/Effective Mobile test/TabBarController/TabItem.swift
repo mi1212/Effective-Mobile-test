@@ -9,7 +9,7 @@ import UIKit
 
 enum TabItem: String, CaseIterable {
     case explorer
-    case checkout
+    case cart
     case favorites
     case profile
     
@@ -22,7 +22,7 @@ extension TabItem {
         case .explorer:
             let nc = UINavigationController(rootViewController: ExplorerViewController())
             return nc
-        case .checkout:
+        case .cart:
             let nc = UINavigationController(rootViewController: CartViewController())
             return nc
         case .favorites:
@@ -38,8 +38,8 @@ extension TabItem {
         switch self {
         case .explorer:
             return UIImage(named: "explorer")?.withTintColor(.white.withAlphaComponent(0.4))
-        case .checkout:
-            return UIImage(named: "checkout")?.withTintColor(.white.withAlphaComponent(0.4))
+        case .cart:
+            return UIImage(named: "cart")?.withTintColor(.white.withAlphaComponent(0.4))
         case .favorites:
             return UIImage(named: "favorites")?.withTintColor(.white.withAlphaComponent(0.4))
         case .profile:
@@ -51,8 +51,8 @@ extension TabItem {
         switch self {
         case .explorer:
             return UIImage(named: "explorer")?.withTintColor(.white)
-        case .checkout:
-            return UIImage(named: "checkout")?.withTintColor(.white)
+        case .cart:
+            return UIImage(named: "cart")?.withTintColor(.white)
         case .favorites:
             return UIImage(named: "favorites")?.withTintColor(.white)
         case .profile:
