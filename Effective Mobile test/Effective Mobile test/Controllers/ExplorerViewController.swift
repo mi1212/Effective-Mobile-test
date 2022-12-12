@@ -29,6 +29,11 @@ class ExplorerViewController: UIViewController {
     
     let navigationBarView = NavigationBarView("Minsk, Belorussia")
     
+    private lazy var tap: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        return tap
+    }()
+    
     let qrButton: UIView = {
         let view = UIView()
         view.backgroundColor = .appTestColor
@@ -47,6 +52,7 @@ class ExplorerViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundColor
         navigationController?.tabBarController?.tabBar.isHidden = true
+//        self.view.addGestureRecognizer(tap)
         setup()
         setupqrButton()
         setupProperties()
@@ -173,6 +179,10 @@ class ExplorerViewController: UIViewController {
     @objc func presentFilterViewController() {
         let vc = FilterViewController()
         navigationController?.present(vc, animated: true)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
  
 }
