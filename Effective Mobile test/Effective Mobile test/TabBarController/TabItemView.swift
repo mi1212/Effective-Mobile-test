@@ -45,36 +45,48 @@ final class TabItemView: UIView {
         contentView.addSubview(badgeView)
         iconImageView.image = isSelected ? item.selectedIcon : item.icon
 
-        contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+
         
-        iconImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(30)
-            make.centerX.equalToSuperview()
-            make.bottom.top.equalTo(contentView)
-        }
+
         
         if labelView.text != "" {
+            
+            contentView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            
+            iconImageView.snp.makeConstraints { make in
+                make.width.height.equalTo(30)
+                make.centerY.equalTo(contentView)
+                make.bottom.top.equalTo(contentView)
+            }
+            
             labelView.snp.makeConstraints { make in
-                make.leading.equalTo(iconImageView.snp.trailing).inset(-8)
+                make.leading.equalTo(iconImageView.snp.trailing).inset(8)
                 make.top.bottom.equalTo(iconImageView)
                 make.trailing.equalTo(contentView)
             }
+        } else {
+            
+            contentView.snp.makeConstraints { make in
+                make.width.height.equalTo(20)
+                make.edges.equalToSuperview()
+            }
+            
+            iconImageView.snp.makeConstraints { make in
+                make.width.height.equalTo(20)
+                make.center.equalToSuperview()
+                make.bottom.top.equalTo(contentView)
+            }
         }
-        
-//        if badgeView.text != "" {
-//
-//        }
-        
     }
     
     func setupBadge(qtyOfItemsinCart: Int) {
         contentView.addSubview(badgeView)
         
         badgeView.snp.makeConstraints { make in
-            make.trailing.bottom.equalTo(iconImageView).inset(2)
-            make.width.height.equalTo(16)
+            make.trailing.bottom.equalTo(iconImageView)
+            make.width.height.equalTo(12)
         }
         badgeView.text = "\(qtyOfItemsinCart)"
     }
@@ -87,10 +99,12 @@ final class TabItemView: UIView {
         badgeView.clipsToBounds = true
         badgeView.textAlignment = .center
         badgeView.textColor = .white
-        badgeView.font = UIFont(name: "MarkPro", size: 12)
+        badgeView.adjustsFontSizeToFitWidth = true
+//        badgeView.font = UIFont(name: "MarkPro", size: 15)
         
         self.labelView.textColor = .white
-        self.labelView.adjustsFontSizeToFitWidth = true
+//        self.labelView.adjustsFontSizeToFitWidth = true
+        self.labelView.font = UIFont(name: "MarkPro", size: 12)
         self.labelView.minimumScaleFactor = 0.5
     }
     

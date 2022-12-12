@@ -56,7 +56,8 @@ final class TabBar: UIView {
         
         stack.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.width.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalToSuperview()
         }
  
     }
